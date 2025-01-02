@@ -38,6 +38,16 @@ app.MapGet("/weatherforecast", () =>
 
 app.MapGet("/hello", () => { return "Hello Yayak!"; });
 
+app.MapGet("test", (IConfiguration Configuration) =>
+{
+    return Configuration["TestEnvVar"]?.ToString();
+});
+
+app.MapGet("test2", (IConfiguration Configuration) =>
+{
+    return Environment.GetEnvironmentVariable("TestEnvVar")?.ToString();
+});
+
 app.Run();
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
