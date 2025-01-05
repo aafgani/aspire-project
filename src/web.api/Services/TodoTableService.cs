@@ -72,17 +72,19 @@ public class TodoTableService : ITodoTableService
     {
         try
         {
-            var tableEntity = new TableEntity(partitionKey, todo.RowKey);
-            tableEntity.Add(nameof(Todo.PartitionKey), partitionKey);
-            tableEntity.Add(nameof(Todo.ItemName), todo.ItemName);
-            tableEntity.Add(nameof(Todo.IsCompleted), todo.IsCompleted);
-            tableEntity.Add(nameof(Todo.CreatedDate), todo.Timestamp);
-            tableEntity.Add(nameof(Todo.CreatedByEmail), todo.CreatedByEmail);
-            tableEntity.Add(nameof(Todo.CreatedByName), todo.CreatedByName);
+            var tableEntity = new TableEntity(partitionKey, todo.RowKey)
+            {
+                { nameof(Todo.PartitionKey), partitionKey },
+                { nameof(Todo.ItemName), todo.ItemName },
+                { nameof(Todo.IsCompleted), todo.IsCompleted },
+                { nameof(Todo.CreatedDate), todo.Timestamp },
+                { nameof(Todo.CreatedByEmail), todo.CreatedByEmail },
+                { nameof(Todo.CreatedByName), todo.CreatedByName }
+            };
 
             await tableClient.UpsertEntityAsync(tableEntity);
         }
-        catch (Exception e)
+        catch (Exception)
         {
             throw;
         }
