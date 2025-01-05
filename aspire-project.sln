@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{84C15202-B54
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web.api", "src\web.api\web.api.csproj", "{8F648A5B-DD67-4406-984D-F644EFBD2098}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{054A430A-21A6-4F01-956E-9615F30CBD01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Api.IntegrationtTests", "test\Web.Api.IntegrationtTests\Web.Api.IntegrationtTests.csproj", "{A19A04DA-0C29-4F31-9672-5F2A75F1A55E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +24,13 @@ Global
 		{8F648A5B-DD67-4406-984D-F644EFBD2098}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F648A5B-DD67-4406-984D-F644EFBD2098}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F648A5B-DD67-4406-984D-F644EFBD2098}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A19A04DA-0C29-4F31-9672-5F2A75F1A55E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A19A04DA-0C29-4F31-9672-5F2A75F1A55E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A19A04DA-0C29-4F31-9672-5F2A75F1A55E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A19A04DA-0C29-4F31-9672-5F2A75F1A55E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8F648A5B-DD67-4406-984D-F644EFBD2098} = {84C15202-B54D-46B1-B2DF-49B721FC9109}
+		{A19A04DA-0C29-4F31-9672-5F2A75F1A55E} = {054A430A-21A6-4F01-956E-9615F30CBD01}
 	EndGlobalSection
 EndGlobal
