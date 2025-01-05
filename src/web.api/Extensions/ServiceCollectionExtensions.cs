@@ -12,7 +12,10 @@ public static class ServiceCollectionExtensions
     }
     public static IServiceCollection AddConfigurationOptions(this IServiceCollection services, ConfigurationManager configuration)
     {
-        services.Configure<StorageConfiguration>(configuration.GetSection("StorageConfiguration"));
+        services
+            .Configure<StorageConfiguration>(configuration.GetSection("StorageConfiguration"))
+            .AddOptionsWithValidateOnStart<StorageConfiguration>()
+            .ValidateDataAnnotations();
         return services;
     }
 
