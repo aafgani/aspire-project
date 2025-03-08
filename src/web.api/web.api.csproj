@@ -6,6 +6,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <ContainerFamily>jammy-chiseled</ContainerFamily>
     <ContainerRepository>web-api-containers-chiseled</ContainerRepository>
+    <RuntimeIdentifiers>linux-x64</RuntimeIdentifiers>
+    <EnableSdkContainerDebugging>True</EnableSdkContainerDebugging>
+    <ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:8.0</ContainerBaseImage>
+    <UserSecretsId>14658431-d347-4d93-8359-28ebd173be6d</UserSecretsId>
+    <DockerfileContext>..\..</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +21,10 @@
 
   <ItemGroup>
     <InternalsVisibleTo Include="Web.Api.IntegrationtTests"></InternalsVisibleTo>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ContainerPort Include="8081" />
   </ItemGroup>
 
 </Project>
