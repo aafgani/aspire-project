@@ -20,7 +20,7 @@ var host = new HostBuilder()
             .AddCustomConfiguration()
             .AddCustomServices();
 
-        //Application Insights isn't enabled by default. See https://aka.ms/AAt8mw4.
+        //Application Insights 
         //services.AddApplicationInsightsTelemetryWorkerService().
         //services.ConfigureFunctionsApplicationInsights();
 
