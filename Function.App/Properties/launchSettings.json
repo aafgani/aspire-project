@@ -1,0 +1,15 @@
+{
+  "profiles": {
+    "Function.App": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7093"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "containerRunArguments": "--init",
+      "httpPort": 34160,
+      "useSSL": false
+    }
+  }
+}
