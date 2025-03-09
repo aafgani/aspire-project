@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using web.api.Configurations;
 using web.api.Services;
 
-namespace Web.Api.IntegrationtTests;
+namespace Web.Api.IntegrationTests;
 
 internal class ApiWebApplicationFactory : WebApplicationFactory<Program>
 {

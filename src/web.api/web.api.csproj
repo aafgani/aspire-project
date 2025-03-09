@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="Web.Api.IntegrationtTests"></InternalsVisibleTo>
+    <InternalsVisibleTo Include="Web.Api.IntegrationTests"></InternalsVisibleTo>
   </ItemGroup>
 
   <ItemGroup>
