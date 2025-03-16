@@ -11,17 +11,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{054A430A-2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Api.IntegrationTests", "test\Web.Api.IntegrationtTests\Web.Api.IntegrationTests.csproj", "{A19A04DA-0C29-4F31-9672-5F2A75F1A55E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Function", "Function.App\App.Function.csproj", "{B7A589A5-0A5D-4273-9B99-7D23769DB36B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Function", "src\Function.App\App.Function.csproj", "{B7A589A5-0A5D-4273-9B99-7D23769DB36B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{376D614D-6E51-4279-98E3-587D812D9D8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Core", "App.Core\App.Core.csproj", "{0639A7E5-31C2-4C6F-8536-AAC588DDEEB5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Core", "lib\App.Core\App.Core.csproj", "{0639A7E5-31C2-4C6F-8536-AAC588DDEEB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Infrastructure", "App.Infrastructure\App.Infrastructure.csproj", "{8B011B7B-293C-498D-B78E-2DC5B55121BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Infrastructure", "lib\App.Infrastructure\App.Infrastructure.csproj", "{8B011B7B-293C-498D-B78E-2DC5B55121BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Infrastructure.UnitTests", "App.Infrastructure.UnitTests\App.Infrastructure.UnitTests.csproj", "{25146036-AA0A-41FE-A062-5C9AFF28610B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Infrastructure.UnitTests", "test\App.Infrastructure.UnitTests\App.Infrastructure.UnitTests.csproj", "{25146036-AA0A-41FE-A062-5C9AFF28610B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Function.UnitTests", "App.Function.UnitTests\App.Function.UnitTests.csproj", "{5F175C27-D70E-4C39-84C0-247062ED3196}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Function.UnitTests", "test\App.Function.UnitTests\App.Function.UnitTests.csproj", "{5F175C27-D70E-4C39-84C0-247062ED3196}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
