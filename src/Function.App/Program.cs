@@ -18,7 +18,8 @@ var host = new HostBuilder()
         //services.AddLogging();
         services
             .AddCustomConfiguration()
-            .AddCustomServices();
+            .AddCustomServices()
+            .AddHandlers();
 
         //Application Insights 
         //services.AddApplicationInsightsTelemetryWorkerService().
