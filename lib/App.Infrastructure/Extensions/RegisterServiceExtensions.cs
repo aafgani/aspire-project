@@ -22,7 +22,7 @@ namespace App.Infrastructure.Extensions
         public static IServiceCollection ConfigureHealthChecks(this IServiceCollection services, ConfigurationManager configuration)
         {
             services.AddHealthChecks()
-                .AddCheck<DatabaseHealthCheck>("ChinookDb-database-health-check", failureStatus : HealthStatus.Unhealthy, tags : new[] { "database" });
+                .AddCheck<DatabaseHealthCheck<ChinookDb>>("ChinookDb-database-health-check", failureStatus : HealthStatus.Unhealthy, tags : new[] { "database" });
           
             return services;
         }

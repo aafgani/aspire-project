@@ -1,10 +1,11 @@
-﻿using App.Infrastructure.Data;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 namespace App.Infrastructure.HealthChecks
 {
-    internal class DatabaseHealthCheck : IHealthCheck
+    internal class DatabaseHealthCheck<TContext>: IHealthCheck
+        where TContext : DbContext
     {
         private readonly IServiceProvider _serviceProvider;
         public DatabaseHealthCheck(IServiceProvider serviceProvider)
@@ -16,7 +17,7 @@ namespace App.Infrastructure.HealthChecks
         {
             using (var scope = _serviceProvider.CreateScope())
             {
-                var dbContext = scope.ServiceProvider.GetRequiredService<ChinookDb>();
+                var dbContext = scope.ServiceProvider.GetRequiredService<TContext>();
                 
                 try
                 {
