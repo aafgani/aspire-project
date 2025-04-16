@@ -1,7 +1,11 @@
+using App.Business.Extensions;
 using App.Function;
 using App.Function.Extensions;
 using Microsoft.Azure.Functions.Worker.Builder;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+
+IConfigurationRoot configRoot = null;
 
 var host = new HostBuilder()
     .ConfigureFunctionsWebApplication(builder =>
@@ -12,6 +16,7 @@ var host = new HostBuilder()
     {
         //configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
         configuration.AddUserSecrets(Assembly.GetExecutingAssembly(), true);
+        configRoot = configuration.Build();
     })
     .ConfigureServices( services =>
     {
@@ -19,7 +24,7 @@ var host = new HostBuilder()
         services
             .AddCustomConfiguration()
             .AddCustomServices()
-            .AddHandlers();
+            .AddBusinesServices(configRoot);
 
         //Application Insights 
         //services.AddApplicationInsightsTelemetryWorkerService().

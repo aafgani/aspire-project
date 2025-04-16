@@ -1,10 +1,20 @@
-﻿namespace Web.API.Dtos.Albums
+﻿namespace App.Domain.Model.Dtos.Albums
 {
     public class AlbumDto
     {
         public string Title { get; set; } = default!;
 
         public int ArtistId { get; set; }
+    }
+
+    public class CreateAlbumDto : AlbumDto
+    {
+
+    }
+
+    public class UpdateAlbumDto : AlbumDto
+    {
+
     }
 
     public class AlbumResponseDto

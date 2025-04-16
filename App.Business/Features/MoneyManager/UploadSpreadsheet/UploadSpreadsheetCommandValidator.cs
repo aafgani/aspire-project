@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace App.Domain.Features.MoneyManager.UploadSpreadsheet
+namespace App.Business.Features.MoneyManager.UploadSpreadsheet
 {
     public class UploadSpreadsheetCommandValidator : AbstractValidator<UploadSpreadsheetCommand>
     {

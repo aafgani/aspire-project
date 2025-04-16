@@ -1,6 +1,6 @@
 ﻿using App.Domain.Interface;
 
-namespace App.Domain.Features.MoneyManager.UploadSpreadsheet
+namespace App.Business.Features.MoneyManager.UploadSpreadsheet
 {
     public class UploadSpreadsheetCommand : ICommand
     {

@@ -2,7 +2,7 @@
 using App.Domain.Model;
 using Microsoft.Extensions.Logging;
 
-namespace App.Domain.Features.MoneyManager.UploadSpreadsheet
+namespace App.Business.Features.MoneyManager.UploadSpreadsheet
 {
     public class UploadSpreadsheetCommandHandler : ICommandHandler<UploadSpreadsheetCommand>
     {

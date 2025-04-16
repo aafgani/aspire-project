@@ -1,8 +1,8 @@
-﻿using App.Infrastructure.Entities;
+﻿using App.Domain.Entities;
+using App.Domain.Model.Dtos.Artists;
 using Riok.Mapperly.Abstractions;
-using Web.API.Dtos.Artists;
 
-namespace Web.API.Dtos.Mapper
+namespace App.Business.Mapper
 {
     [Mapper]
     public partial class ArtistMapper

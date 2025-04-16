@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace App.Infrastructure.Entities;
+namespace App.Domain.Entities;
 
 [Table("Genre")]
 public partial class Genre

@@ -1,7 +1,9 @@
 using App.Infrastructure.Extensions;
+using App.Business.Extensions;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using web.api.Extensions;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,7 @@ var config = builder.Configuration;
 builder.Services
     .AddConfigurationOptions(config)
     .AddApplicationServices()
+    .AddBusinesServices(config)
     .AddInfrastructureServices(config)
     .ConfigureHealthChecks(config);
 

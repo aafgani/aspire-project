@@ -1,4 +1,4 @@
-﻿namespace Web.API.Dtos.Artists
+﻿namespace App.Domain.Model.Dtos.Artists
 {
     public class CreateArtistDto
     {

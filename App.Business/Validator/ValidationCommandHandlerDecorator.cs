@@ -3,7 +3,7 @@ using App.Domain.Model;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace App.Domain.Core.Behaviour
+namespace App.Business.Validator
 {
     public class ValidationCommandHandlerDecorator<TCommand> : ICommandHandler<TCommand>
     where TCommand : ICommand

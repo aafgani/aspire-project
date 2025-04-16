@@ -1,11 +1,13 @@
-﻿using App.Infrastructure.Entities;
+﻿using App.Domain.Entities;
+using App.Domain.Model.Dtos.Albums;
 using Riok.Mapperly.Abstractions;
-using Web.API.Dtos.Albums;
-namespace Web.API.Dtos.Mapper
+
+namespace App.Business.Mapper
 {
     [Mapper]
     public partial class AlbumMapper
     {
+
         public partial Album ToEntity(AlbumDto dto);
 
         public partial AlbumResponseDto ToDto(Album album);

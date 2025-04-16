@@ -1,7 +1,7 @@
-﻿using App.Infrastructure.Data;
+﻿using App.Business.Mapper;
+using App.Domain.Model.Dtos.Artists;
+using App.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using Web.API.Dtos.Artists;
-using Web.API.Dtos.Mapper;
 
 namespace Web.API.Endpoints
 {
