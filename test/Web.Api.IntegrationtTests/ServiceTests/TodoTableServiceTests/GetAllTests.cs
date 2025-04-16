@@ -1,5 +1,5 @@
+using App.Domain.Model.Configuration;
 using Microsoft.Extensions.Options;
-using web.api.Configurations;
 using web.api.Services;
 
 namespace Web.Api.IntegrationtTests.ServiceTests;

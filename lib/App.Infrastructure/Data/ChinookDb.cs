@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace App.Infrastructure.Data;
 
-public partial class Chinook : DbContext
+public partial class ChinookDb : DbContext
 {
-    public Chinook(DbContextOptions<Chinook> options)
+    public ChinookDb(DbContextOptions<ChinookDb> options)
         : base(options)
     {
     }

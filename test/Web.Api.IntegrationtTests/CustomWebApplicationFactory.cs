@@ -1,10 +1,10 @@
 using System.Reflection;
+using App.Domain.Model.Configuration;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using web.api.Configurations;
 using web.api.Services;
 
 namespace Web.Api.IntegrationTests;
