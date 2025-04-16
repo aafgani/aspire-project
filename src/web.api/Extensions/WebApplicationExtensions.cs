@@ -1,6 +1,7 @@
 using App.Domain.CustomException;
 using Microsoft.AspNetCore.Diagnostics;
 using web.api.Endpoints;
+using Web.API.Endpoints;
 
 namespace web.api.Extensions;
 
@@ -8,8 +9,17 @@ public static class WebApplicationExtensions
 {
     public static WebApplication MapEndpoints(this WebApplication app)
     {
-        app.MapTodos();
         app.MapHello();
+
+        app
+            .MapGroup(EndpointGroupNames.TodosGroupName)
+            .WithTags(EndpointGroupNames.TodosGroupName)
+            .MapTodos();
+
+        app
+            .MapGroup(EndpointGroupNames.ArtistsGroupName)
+            .WithTags(EndpointGroupNames.ArtistsTagName)
+            .MapArtists();
 
         return app;
     }
