@@ -7,5 +7,8 @@
 
         public const string ArtistsGroupName = "/artists";
         public const string ArtistsTagName = "Artists";
+
+        public const string AlbumsGroupName = "/albums";
+        public const string AlbumsTagName = "Album";
     }
 }

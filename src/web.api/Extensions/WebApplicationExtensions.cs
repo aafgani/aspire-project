@@ -21,6 +21,11 @@ public static class WebApplicationExtensions
             .WithTags(EndpointGroupNames.ArtistsTagName)
             .MapArtists();
 
+        app
+            .MapGroup (EndpointGroupNames.AlbumsGroupName)
+            .WithTags (EndpointGroupNames.AlbumsTagName)
+            .MapAlbums();
+
         return app;
     }
 

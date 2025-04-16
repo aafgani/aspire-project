@@ -1,6 +1,6 @@
 ﻿using App.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using Web.API.Dtos.Artist;
+using Web.API.Dtos.Artists;
 using Web.API.Dtos.Mapper;
 
 namespace Web.API.Endpoints

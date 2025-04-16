@@ -16,6 +16,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddMapper(this IServiceCollection services)
     {
         services.AddScoped<ArtistMapper>();
+        services.AddScoped<AlbumMapper>();
 
         return services;
     }

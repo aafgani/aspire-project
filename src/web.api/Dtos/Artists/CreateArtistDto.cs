@@ -1,4 +1,4 @@
-﻿namespace Web.API.Dtos.Artist
+﻿namespace Web.API.Dtos.Artists
 {
     public class CreateArtistDto
     {

@@ -1,11 +1,12 @@
-﻿using Riok.Mapperly.Abstractions;
-using Web.API.Dtos.Artist;
+﻿using App.Infrastructure.Entities;
+using Riok.Mapperly.Abstractions;
+using Web.API.Dtos.Artists;
 
 namespace Web.API.Dtos.Mapper
 {
     [Mapper]
     public partial class ArtistMapper
     {
-        public partial App.Infrastructure.Entities.Artist ToEntity(CreateArtistDto dto);
+        public partial Artist ToEntity(CreateArtistDto dto);
     }
 }
