@@ -16,8 +16,7 @@ namespace Web.API.Endpoints
             })
                 .WithName("GetTopTracks")
                 .WithSummary("Get the top most purchased tracks")
-                .WithDescription("Returns a list of the top purchased tracks based on invoice lines, including track name, purchase count, and artist.")
-                .WithOpenApi();
+                .WithDescription("Returns a list of the top purchased tracks based on invoice lines, including track name, purchase count, and artist.");
 
             return group;
         }
