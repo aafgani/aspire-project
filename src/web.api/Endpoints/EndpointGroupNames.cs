@@ -10,5 +10,8 @@
 
         public const string AlbumsGroupName = "/albums";
         public const string AlbumsTagName = "Album";
+
+        public const string TracksGroupName = "/tracks";
+        public const string TracksTagName = "Tracks";
     }
 }

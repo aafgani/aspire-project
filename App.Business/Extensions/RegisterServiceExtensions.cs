@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using App.Business.Validator;
 using App.Business.Features.Albums;
+using App.Business.Features.Tracks;
 
 namespace App.Business.Extensions
 {
@@ -27,6 +28,7 @@ namespace App.Business.Extensions
         {
             services.AddScoped<ArtistMapper>();
             services.AddScoped<AlbumMapper>();
+            services.AddScoped<TrackMapper>();
 
             return services;
         }
@@ -34,6 +36,7 @@ namespace App.Business.Extensions
         private static IServiceCollection AddClassServices(this IServiceCollection services)
         {
             services.AddScoped<IAlbumService, AlbumService>();
+            services.AddScoped<ITrackService, TrackService>();
 
             return services;
         }
