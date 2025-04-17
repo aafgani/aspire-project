@@ -31,6 +31,11 @@ public static class WebApplicationExtensions
             .WithTags(EndpointGroupNames.TracksTagName)
             .MapTracks();
 
+        app
+            .MapGroup(EndpointGroupNames.CustomersGroupName)
+            .WithTags(EndpointGroupNames.CustomersTagName)
+            .MapCustomers();
+
         return app;
     }
 

@@ -13,5 +13,8 @@
 
         public const string TracksGroupName = "/tracks";
         public const string TracksTagName = "Tracks";
+        
+        public const string CustomersGroupName = "/customers";
+        public const string CustomersTagName = "Customer";
     }
 }
