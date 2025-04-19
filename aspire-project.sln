@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Infrastructure.UnitTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Function.UnitTests", "test\App.Function.UnitTests\App.Function.UnitTests.csproj", "{5F175C27-D70E-4C39-84C0-247062ED3196}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Business", "App.Business\App.Business.csproj", "{B5E6DE21-8540-422A-B674-6586DCEA8DA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Business", "lib\App.Business\App.Business.csproj", "{B5E6DE21-8540-422A-B674-6586DCEA8DA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

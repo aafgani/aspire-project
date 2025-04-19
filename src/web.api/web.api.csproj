@@ -29,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\App.Business\App.Business.csproj" />
+    <ProjectReference Include="..\..\lib\App.Business\App.Business.csproj" />
     <ProjectReference Include="..\..\lib\App.Core\App.Domain.csproj" />
     <ProjectReference Include="..\..\lib\App.Infrastructure\App.Infrastructure.csproj" />
   </ItemGroup>

@@ -14,12 +14,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\lib\App.Core\App.Domain.csproj" />
-    <ProjectReference Include="..\lib\App.Infrastructure\App.Infrastructure.csproj" />
+    <Folder Include="Features\Artists\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Artists\" />
+    <ProjectReference Include="..\App.Core\App.Domain.csproj" />
+    <ProjectReference Include="..\App.Infrastructure\App.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
