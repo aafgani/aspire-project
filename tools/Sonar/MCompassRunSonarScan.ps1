@@ -1,4 +1,4 @@
-Write-Host "=== Running SonarQube Scan ==="
+Write-Host "=== MCompass SonarQube Scheduler ==="
 
 # Define paths and project settings
 $tfPath = "C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\"
@@ -13,9 +13,9 @@ $collectionUrl = "http://tfs.mitrais.com:8080/tfs/Mitrais"
 $tfsSourcePath = "$/CMS Enhancement/Development/CMS2025Q1/Source/"
 $workspaceName = "SonarScanWorkspace"
 
-$sonarHost = "http://localhost:9000"
-$sonarToken = "sqp_2b3c5391c2d83a433eac326b1a4ff569193dc82f"
-$projectKey = "MCompass---MITRAIS"
+$sonarHost = "https://sonarqube.mitrais-dev.com"
+$sonarToken = $env:SonarScanner_Token
+$projectKey = "m-compass-backend"
 $slnName = "CRS.sln"
 $slnFullPath = Join-Path $localPath $slnName
 
@@ -29,7 +29,7 @@ $logPath = "C:\Log\Sonar\SonarScan-$timestamp.log"
 try {
     # TFS login credentials (use env var for password)
     $tfsUser = "mitrais\andrya_A354"
-    $tfsPassword = $env:TFS_PASSWORD
+    $tfsPassword = $env:SonarScanner_Tfs_Passwd
     $tfsLogin = "/login:$tfsUser,$tfsPassword"
 
     Write-Host "Checking paths..."
@@ -63,10 +63,11 @@ try {
     Write-Host "Checkout completed"
 
     # Run SonarQube scan
+    Write-Host "Running SonarQube Scan"
     & $sonarScanner begin `
-      /k:"$projectKey" `
-      /d:sonar.host.url="$sonarHost" `
-      /d:sonar.token="$sonarToken"
+    "/k:$projectKey" `
+    "/d:sonar.host.url=$sonarHost" `
+    "/d:sonar.token=$sonarToken" 
 
     & $msbuild $slnFullPath /t:Rebuild
 
