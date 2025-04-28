@@ -21,7 +21,7 @@
     <PackageReference Include="Scrutor" Version="6.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\lib\App.Business\App.Business.csproj" />
+    <ProjectReference Include="..\..\lib\App.Business\App.Core.csproj" />
     <ProjectReference Include="..\..\lib\App.Core\App.Domain.csproj" />
     <ProjectReference Include="..\..\lib\App.Infrastructure\App.Infrastructure.csproj" />
   </ItemGroup>

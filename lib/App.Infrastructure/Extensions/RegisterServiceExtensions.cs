@@ -1,4 +1,6 @@
-﻿using App.Infrastructure.Data;
+﻿using App.Domain.Interface.Repo;
+using App.Infrastructure.Data;
+using App.Infrastructure.Data.Repo;
 using App.Infrastructure.HealthChecks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -11,10 +13,20 @@ namespace App.Infrastructure.Extensions
     {
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, ConfigurationManager configuration)
         {
+            services.AddDbRepo(configuration);
+
+            return services;
+        }
+
+        private static IServiceCollection AddDbRepo(this IServiceCollection services, ConfigurationManager configuration)
+        {
+            // Register DbContext with SQL Server
             services.AddDbContext<ChinookDb>(options =>
             {
                 options.UseSqlServer(configuration.GetConnectionString("ChinookDb"));
             });
+
+            services.AddScoped<IAlbumRepository, AlbumRepository>();
 
             return services;
         }

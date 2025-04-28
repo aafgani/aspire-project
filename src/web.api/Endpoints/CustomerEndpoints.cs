@@ -7,7 +7,9 @@ namespace Web.API.Endpoints
     {
         public static RouteGroupBuilder MapCustomers(this IEndpointRouteBuilder routes)
         {
-            var group = routes.MapGroup(EndpointGroupNames.CustomersGroupName);
+            var group = routes
+                .MapGroup(EndpointGroupNames.CustomersGroupName)
+                .WithTags(EndpointGroupNames.CustomersTagName);
 
             group.MapGet("/all", async (ICustomerService service, [AsParameters] CustomerQueryParams query) =>
             {

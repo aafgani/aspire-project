@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="Web.Api.IntegrationTests"></InternalsVisibleTo>
+    <InternalsVisibleTo Include="Test.IntegrationTest.Api"></InternalsVisibleTo> 
   </ItemGroup>
 
   <ItemGroup>
@@ -29,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\lib\App.Business\App.Business.csproj" />
+    <ProjectReference Include="..\..\lib\App.Business\App.Core.csproj" />
     <ProjectReference Include="..\..\lib\App.Core\App.Domain.csproj" />
     <ProjectReference Include="..\..\lib\App.Infrastructure\App.Infrastructure.csproj" />
   </ItemGroup>

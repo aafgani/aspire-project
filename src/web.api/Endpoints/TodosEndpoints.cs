@@ -8,7 +8,9 @@ public static class TodosEndpoints
 {
     public static RouteGroupBuilder MapTodos(this IEndpointRouteBuilder routes)
     {
-        var group = routes.MapGroup(EndpointGroupNames.TodosGroupName);
+        var group = routes
+             .MapGroup(EndpointGroupNames.TodosGroupName)
+             .WithTags(EndpointGroupNames.TodosGroupName);
 
         group.MapPost("/", async (ITodoTableService todoTableService, Todo todo) =>
         {

@@ -7,7 +7,9 @@ namespace Web.API.Endpoints
     {
         public static RouteGroupBuilder MapAlbums(this IEndpointRouteBuilder routes) 
         {
-            var group = routes.MapGroup(EndpointGroupNames.AlbumsGroupName);
+            var group = routes
+                .MapGroup(EndpointGroupNames.AlbumsGroupName)
+                .WithTags(EndpointGroupNames.AlbumsTagName);
 
             group.MapGet("/", async (IAlbumService service) =>
             {

@@ -10,6 +10,7 @@ using App.Business.Validator;
 using App.Business.Features.Albums;
 using App.Business.Features.Tracks;
 using App.Business.Features.Customer;
+using App.Domain.Interface.Mapper;
 
 namespace App.Business.Extensions
 {
@@ -28,7 +29,7 @@ namespace App.Business.Extensions
         private static IServiceCollection AddMapper(this IServiceCollection services)
         {
             services.AddScoped<ArtistMapper>();
-            services.AddScoped<AlbumMapper>();
+            services.AddScoped<IAlbumMapper, AlbumMapper>();
             services.AddScoped<TrackMapper>();
             services.AddScoped<CustomerMapper>();
 

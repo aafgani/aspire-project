@@ -7,7 +7,9 @@ namespace Web.API.Endpoints
     {
         public static RouteGroupBuilder MapTracks(this IEndpointRouteBuilder routes) 
         {
-            var group = routes.MapGroup(EndpointGroupNames.TracksGroupName);
+            var group = routes
+                .MapGroup(EndpointGroupNames.TracksGroupName)
+                .WithTags(EndpointGroupNames.TracksTagName);
 
             group.MapGet("/top-tracks", async (int count, ITrackService service) =>
             {

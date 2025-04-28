@@ -27,7 +27,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{02EA681E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sonar", "Sonar", "{C94DFE88-5514-468A-8F22-6F170B1F035B}"
 	ProjectSection(SolutionItems) = preProject
+		tools\Sonar\cleanup-temp-folders.ps1 = tools\Sonar\cleanup-temp-folders.ps1
 		tools\Sonar\MCompassRunSonarScan.ps1 = tools\Sonar\MCompassRunSonarScan.ps1
+		tools\Sonar\Tes.ps1 = tools\Sonar\Tes.ps1
 	EndProjectSection
 EndProject
 Global

@@ -9,7 +9,9 @@ namespace Web.API.Endpoints
     {
         public static RouteGroupBuilder MapArtists(this IEndpointRouteBuilder routes) 
         {
-            var group = routes.MapGroup(EndpointGroupNames.ArtistsGroupName);
+            var group = routes
+                .MapGroup(EndpointGroupNames.ArtistsGroupName)
+                .WithTags(EndpointGroupNames.ArtistsTagName);
 
             group.MapGet("/", async (ChinookDb db) =>
             {

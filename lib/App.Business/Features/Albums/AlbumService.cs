@@ -1,68 +1,58 @@
 ﻿using App.Business.Mapper;
 using App.Domain.Interface;
-using App.Domain.Model;
+using App.Domain.Interface.Mapper;
+using App.Domain.Interface.Repo;
 using App.Domain.Model.Dtos.Albums;
-using App.Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
 
 namespace App.Business.Features.Albums
 {
     public class AlbumService : IAlbumService
     {
-        private readonly ChinookDb _db ;
-        private readonly AlbumMapper _mapper;
+        private readonly IAlbumRepository _albumRepository;
+        private readonly IAlbumMapper _mapper;
 
-        public AlbumService(ChinookDb db, AlbumMapper mapper)
+        public AlbumService(IAlbumRepository albumRepository, IAlbumMapper mapper)
         {
-            _db = db;
+            _albumRepository = albumRepository;
             _mapper = mapper;
         }
 
         public async Task<AlbumResponseDto> CreateAsync(CreateAlbumDto dto)
         {
             var album = _mapper.ToEntity(dto);
-            _db.Albums.Add(album);
-            await _db.SaveChangesAsync();
+            await _albumRepository.CreateAsync(album);
             return _mapper.ToDto(album);
         }
 
         public async Task<bool> DeleteAsync(int id)
         {
-            var album = await _db.Albums.FindAsync(id);
+            var album = await _albumRepository.GetByIdAsync(id);
             if (album is null) return false;
 
-            _db.Albums.Remove(album);
-            await _db.SaveChangesAsync();
+            await _albumRepository.DeleteAsync(album);
             return true;
         }
 
         public async Task<IEnumerable<AlbumResponseDto>> GetAllAsync()
         {
-            var albums = await _db.Albums
-                    .Include(a => a.Artist)
-                    .ToListAsync();
-            var result = albums.Select(_mapper.ToDto);
-
-            return result;
+            var albums = await _albumRepository.GetAllAsync();
+            return albums.Select(_mapper.ToDto);
         }
 
         public async Task<AlbumResponseDto?> GetByIdAsync(int id)
         {
-            var album = await _db.Albums
-                .Include(a => a.Artist)
-                .FirstOrDefaultAsync(a => a.AlbumId == id);
-
+            var album = await _albumRepository.GetByIdAsync(id);
             return album is null ? null : _mapper.ToDto(album);
         }
 
         public async Task<bool> UpdateAsync(int id, UpdateAlbumDto dto)
         {
-            var album = await _db.Albums.FindAsync(id);
+            var album = await _albumRepository.GetByIdAsync(id);
             if (album is null) return false;
 
             album.Title = dto.Title;
             album.ArtistId = dto.ArtistId;
-            await _db.SaveChangesAsync();
+            await _albumRepository.UpdateAsync(album);
             return true;
         }
     }

@@ -10,31 +10,11 @@ public static class WebApplicationExtensions
     public static WebApplication MapEndpoints(this WebApplication app)
     {
         app.MapHello();
-
-        app
-            .MapGroup(EndpointGroupNames.TodosGroupName)
-            .WithTags(EndpointGroupNames.TodosGroupName)
-            .MapTodos();
-
-        app
-            .MapGroup(EndpointGroupNames.ArtistsGroupName)
-            .WithTags(EndpointGroupNames.ArtistsTagName)
-            .MapArtists();
-
-        app
-            .MapGroup (EndpointGroupNames.AlbumsGroupName)
-            .WithTags (EndpointGroupNames.AlbumsTagName)
-            .MapAlbums();
-
-        app
-            .MapGroup(EndpointGroupNames.TracksGroupName)
-            .WithTags(EndpointGroupNames.TracksTagName)
-            .MapTracks();
-
-        app
-            .MapGroup(EndpointGroupNames.CustomersGroupName)
-            .WithTags(EndpointGroupNames.CustomersTagName)
-            .MapCustomers();
+        app.MapTodos();
+        app.MapArtists();
+        app .MapAlbums();
+        app.MapTracks();
+        app.MapCustomers();
 
         return app;
     }
