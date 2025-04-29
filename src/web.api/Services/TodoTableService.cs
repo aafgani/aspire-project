@@ -1,7 +1,7 @@
+using App.Domain.Model.Configuration;
 using Azure;
 using Azure.Data.Tables;
 using Microsoft.Extensions.Options;
-using web.api.Configurations;
 using web.api.Models;
 
 namespace web.api.Services;

@@ -1,5 +1,6 @@
 using web.api.Models;
 using web.api.Services;
+using Web.API.Endpoints;
 
 namespace web.api.Endpoints;
 
@@ -7,7 +8,9 @@ public static class TodosEndpoints
 {
     public static RouteGroupBuilder MapTodos(this IEndpointRouteBuilder routes)
     {
-        var group = routes.MapGroup("/todos");
+        var group = routes
+             .MapGroup(EndpointGroupNames.TodosGroupName)
+             .WithTags(EndpointGroupNames.TodosGroupName);
 
         group.MapPost("/", async (ITodoTableService todoTableService, Todo todo) =>
         {
