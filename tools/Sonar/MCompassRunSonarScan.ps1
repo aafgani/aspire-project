@@ -32,14 +32,9 @@ $msbuildLogPath = "C:\Log\Sonar\$timestamp-MSBuildOutput.log"
 
 try {
     # TFS login credentials (use env var for password)
-    $tfsUser = "mitrais\andrya_A354"
+    $tfsUser = $env:SonarScanner_Tfs_User
     $tfsPassword = $env:SonarScanner_Tfs_Passwd
     $tfsLogin = "/login:$tfsUser,$tfsPassword"
-
-    Write-Host "Checking paths..."
-    Write-Host "SonarScanner: $sonarScannerPath"
-    Write-Host "MSBuild: $msbuildPath"
-    Write-Host "Local path: $localPath"
 
     # Validate required tools and paths
     if (!(Test-Path $sonarScannerPath)) { Write-Error "SonarScanner not found."; exit 1 }
@@ -57,6 +52,11 @@ try {
 
     Set-Location "$localPath"
     Write-Host "Current directory: $(Get-Location)"
+    Write-Host "Checking paths..."
+    Write-Host "SonarScanner: $sonarScannerPath"
+    Write-Host "MSBuild: $msbuildPath"
+    Write-Host "Local path: $localPath"
+    Write-Host "Sln path: $slnFullPath"
 
     # Create and map workspace
     & "$tf" workspace /new $workspaceName /collection:"$collectionUrl" /noprompt $tfsLogin
