@@ -399,3 +399,4 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 /coverage/report
+/tools/Code Coverage/.sonarqube

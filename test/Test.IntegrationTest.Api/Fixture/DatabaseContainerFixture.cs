@@ -84,15 +84,9 @@ namespace Test.IntegrationTest.Api.Fixture
             throw new Exception($"❌ Could not connect to the database server at {host}:{port} within the time limit.");
         }
 
-        private async Task SeedDataAsync(ChinookDb context)
+        private Task SeedDataAsync(ChinookDb context)
         {
-            context.Artists.AddRange(
-                new Artist { Name = "The Rolling Stones" },
-                new Artist { Name = "Led Zeppelin" },
-                new Artist { Name = "Pink Floyd" }
-            );
-            
-            await context.SaveChangesAsync();
+            return Task.CompletedTask;
         }
 
         private async Task CreateDatabase()

@@ -1,4 +1,6 @@
-﻿namespace App.Domain.Model.Dtos.Albums
+﻿using App.Domain.Model.Dtos.Tracks;
+
+namespace App.Domain.Model.Dtos.Albums
 {
     public class AlbumDto
     {
@@ -22,5 +24,6 @@
         public int AlbumId { get; set; }
         public string Title { get; set; } = default!;
         public string ArtistName { get; set; } = default!;
+        public ICollection<TrackDto> Tracks { get; set; } = default!;
     }
 }
