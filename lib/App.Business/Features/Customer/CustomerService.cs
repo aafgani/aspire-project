@@ -1,14 +1,10 @@
 ﻿using App.Business.Mapper;
-using App.Domain.Entities;
 using App.Domain.Interface;
 using App.Domain.Model.Dtos.Customer;
 using App.Domain.Model.Dtos.Pagination;
 using App.Domain.Model.QueryParams;
 using App.Infrastructure.Data;
-using Azure;
 using Microsoft.EntityFrameworkCore;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace App.Business.Features.Customer
 {

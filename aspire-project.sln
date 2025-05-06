@@ -23,15 +23,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.UnitTest.Business", "t
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.IntegrationTest.Api", "test\Test.IntegrationTest.Api\Test.IntegrationTest.Api.csproj", "{22680EC8-FFBA-44DC-B92F-7891A1B7542F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sonar", "Sonar", "{C94DFE88-5514-468A-8F22-6F170B1F035B}"
-	ProjectSection(SolutionItems) = preProject
-		tools\Sonar\cleanup-temp-folders.ps1 = tools\Sonar\cleanup-temp-folders.ps1
-		tools\Sonar\MCompassRunSonarScan.ps1 = tools\Sonar\MCompassRunSonarScan.ps1
-		tools\Sonar\Tes.ps1 = tools\Sonar\Tes.ps1
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,7 +69,6 @@ Global
 		{B5E6DE21-8540-422A-B674-6586DCEA8DA2} = {376D614D-6E51-4279-98E3-587D812D9D8F}
 		{409DF31F-76E2-4D4D-8D0D-D6F0CA92592B} = {054A430A-21A6-4F01-956E-9615F30CBD01}
 		{22680EC8-FFBA-44DC-B92F-7891A1B7542F} = {054A430A-21A6-4F01-956E-9615F30CBD01}
-		{C94DFE88-5514-468A-8F22-6F170B1F035B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0EB2B37-3A30-43FD-A667-9BE995CF0E82}

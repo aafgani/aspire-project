@@ -12,11 +12,19 @@ namespace App.Infrastructure.Data.Repo
 
         public async Task<Album> GetAlbumWithTracksAsync(int albumId)
         {
-            var album = await _db.Albums
+            var album = await Set
                 .Include(a => a.Tracks)
                 .FirstOrDefaultAsync(a => a.AlbumId == albumId);
 
             return album ?? throw new InvalidOperationException($"Album with ID {albumId} not found.");
+        }
+
+        public override async Task<IEnumerable<Album>> GetAllAsync()
+        {
+            return await Set
+                .Include(a => a.Artist)
+                .Include(a => a.Tracks)
+                .ToListAsync();
         }
     }
 }

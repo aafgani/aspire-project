@@ -15,7 +15,13 @@ namespace Test.IntegrationTest.Api.FeaturesTests.ArtistsTests
         public async Task GetAllArtists_ReturnsOk()
         {
             // Arrange
-            // maybe seed some test data if needed
+            // seed test data
+            ChinookDbContext.Artists.AddRange(
+                new Artist { Name = "The Rolling Stones" },
+                new Artist { Name = "Led Zeppelin" },
+                new Artist { Name = "Pink Floyd" }
+            );
+            await ChinookDbContext.SaveChangesAsync();
 
             // Act
             var response = await Client.GetAsync("/artists");
@@ -24,7 +30,7 @@ namespace Test.IntegrationTest.Api.FeaturesTests.ArtistsTests
             response.EnsureSuccessStatusCode();
             var artists = await response.Content.ReadFromJsonAsync<List<Artist>>();
             artists.ShouldNotBeNull();
-            artists.Count.ShouldBeGreaterThan(0); 
+            artists.Count.ShouldBe(3);
         }
     }
 }

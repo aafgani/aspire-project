@@ -1,13 +1,12 @@
-﻿using App.Domain.Entities;
-
-namespace App.Domain.Interface.Repo
+﻿namespace App.Domain.Interface.Repo
 {
     public interface IRepository<T>
     {
-        Task<IEnumerable<Album>> GetAllAsync();
+        IQueryable<T> Query(bool tracking = false);
+        Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetByIdAsync(int id);
         Task<T> CreateAsync(T entity);
         Task<int> UpdateAsync(T entity);
-        Task DeleteAsync(Album album);
+        Task DeleteAsync(T album);
     }
 }

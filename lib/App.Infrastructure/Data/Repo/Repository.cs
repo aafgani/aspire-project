@@ -1,15 +1,25 @@
-﻿using App.Domain.Entities;
-using App.Domain.Interface.Repo;
+﻿using App.Domain.Interface.Repo;
+using Microsoft.EntityFrameworkCore;
 
 namespace App.Infrastructure.Data.Repo
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        protected readonly ChinookDb _db;
+        protected readonly DbContext _db;
 
-        public Repository(ChinookDb db)
+        public Repository(DbContext db)
         {
             _db = db;
+        }
+        protected DbSet<T> Set => _db.Set<T>();
+
+        /*
+         * Returning IQueryable<T> gives consumers (e.g., service layer) the flexibility 
+         * to filter, sort, paginate, or project before the query is sent to the database.
+         */
+        public IQueryable<T> Query(bool tracking = false)
+        {
+            return tracking ? _db.Set<T>() : _db.Set<T>().AsNoTracking();
         }
 
         public async Task<T> CreateAsync(T entity)
@@ -19,24 +29,26 @@ namespace App.Infrastructure.Data.Repo
             return entity;
         }
 
-        public Task DeleteAsync(Album album)
+        public async Task DeleteAsync(T album)
         {
-            throw new NotImplementedException();
+            _db.Set<T>().Remove(album);
+            await _db.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<Album>> GetAllAsync()
+        public virtual async Task<IEnumerable<T>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _db.Set<T>().ToListAsync();
         }
 
-        public Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _db.Set<T>().FindAsync(id) ?? null;
         }
 
-        public Task<int> UpdateAsync(T entity)
+        public async Task<int> UpdateAsync(T entity)
         {
-            throw new NotImplementedException();
+            _db.Set<T>().Update(entity);
+            return await _db.SaveChangesAsync();    
         }
     }
 }
