@@ -1,0 +1,41 @@
+﻿<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <ul class="navbar-nav">
+        <!-- Hamburger Icon to Toggle Sidebar -->
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button">
+                <i class="fas fa-bars"></i>
+            </a>
+        </li>
+
+        <!-- Home Link -->
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/" class="nav-link">Home</a>
+        </li>
+    </ul>
+
+    <!-- Navbar Right - User Info -->
+    <ul class="navbar-nav ml-auto">
+        <!-- User Dropdown -->
+        <li class="nav-item dropdown user-menu">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                <img src="~/images/user.jpg" class="user-image img-circle elevation-2" alt="User Image">
+                <span class="d-none d-md-inline">User.Name</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <!-- User Profile Section -->
+                <li class="user-header bg-primary">
+                    <img src="~/images/user.jpg" class="img-circle elevation-2" alt="User Image">
+                    <p>
+                        User.Name
+                        <small>Member since Jan 2024</small>
+                    </p>
+                </li>
+                <!-- User Actions (Profile, Logout) -->
+                <li class="user-footer">
+                    <a href="/Account/Profile" class="btn btn-default btn-flat">Profile</a>
+                    <a href="/Account/Logout" class="btn btn-default btn-flat float-right">Sign out</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
