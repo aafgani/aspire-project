@@ -1,5 +1,7 @@
+using App.Infrastructure.Extensions;
 using Microsoft.Identity.Web.UI;
 using Web.Application.Extensions;
+using Web.Application.Utility.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
@@ -10,7 +12,8 @@ builder.Services
     .AddMicrosoftIdentityUI();
 
 builder.Services
-    .AddAuthentication(config);
+    .AddAuthentication(config)
+    .AddInfrastructureServicesForWebApp();
 
 var app = builder.Build();
 
@@ -28,6 +31,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseMiddleware<SessionValidationMiddleware>();
 app.UseAuthorization();
 
 app.MapControllerRoute(

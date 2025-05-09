@@ -39,7 +39,7 @@ Write-Host "Coberture path : " $MergedCoverageFile
 # Write-Host "Running SonarScanner begin..."
 dotnet sonarscanner begin `
   /k:$SonarProjectKey `
-  /d:sonar.login=$SonarToken `
+  /d:sonar.token=$SonarToken `
   /d:sonar.host.url=$SonarHostUrl `
   /d:sonar.scanner.scanAll=false `
   /d:sonar.cs.opencover.reportsPaths="$MergedCoverageFile" `
