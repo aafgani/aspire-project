@@ -1,7 +1,12 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
+﻿using App.Domain.Interface;
+using App.Domain.Model;
+using App.Infrastructure.Cache;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Identity.Web;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+using System.Security.Claims;
 
 namespace Web.Application.Extensions
 {
@@ -22,9 +27,29 @@ namespace Web.Application.Extensions
                    options.Events ??= new OpenIdConnectEvents();
                    options.Events.OnTokenValidated += OnTokenValidatedFunc;
                    options.Events.OnAuthorizationCodeReceived += OnAuthorizationCodeReceivedFunc;
+                   options.Events.OnRemoteFailure += OnRemoteFailureFunc;
                });
 
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // HTTPS only
+                options.Cookie.SameSite = SameSiteMode.Strict; // or Lax
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+                options.SlidingExpiration = true;
+            });
+
             return services;
+        }
+
+        private static Task OnRemoteFailureFunc(RemoteFailureContext context)
+        {
+            var errorMessage = context.Failure?.Message ?? "Login failed.";
+            var redirectUri = $"/error?message={Uri.EscapeDataString(errorMessage)}&statusCode=403";
+
+            context.Response.Redirect(redirectUri);
+            context.HandleResponse(); // stop the exception from bubbling
+            return Task.CompletedTask;
         }
 
         private static async Task OnAuthorizationCodeReceivedFunc(AuthorizationCodeReceivedContext context)
@@ -34,6 +59,23 @@ namespace Web.Application.Extensions
 
         private static async Task OnTokenValidatedFunc(TokenValidatedContext context)
         {
+            var userId = context.Principal.GetNameIdentifierId();
+            var sessionId = Guid.NewGuid().ToString();
+            var sessionService = context.HttpContext.RequestServices.GetRequiredService<IUserSessionService>();
+
+            var isExists = await sessionService.IsSessionExistsAsync(userId, sessionId);
+
+            if (isExists)
+            {
+                context.HttpContext.Items["AuthError"] = "Another session already exists.";
+                context.Fail("Another session already exists.");
+                return;
+            }
+
+            var identity = (ClaimsIdentity) context.Principal.Identity;
+            identity.AddClaim(new Claim("session_id", sessionId));
+            await sessionService.SetUserSessionAsync(userId, sessionId, CancellationToken.None);
+
             await Task.CompletedTask.ConfigureAwait(false);
         }
     }

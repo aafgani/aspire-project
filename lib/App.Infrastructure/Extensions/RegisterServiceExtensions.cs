@@ -1,7 +1,10 @@
-﻿using App.Domain.Interface.Repo;
+﻿using App.Domain.Interface;
+using App.Domain.Interface.Repo;
+using App.Infrastructure.Cache;
 using App.Infrastructure.Data;
 using App.Infrastructure.Data.Repo;
 using App.Infrastructure.HealthChecks;
+using App.Infrastructure.Session;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +14,15 @@ namespace App.Infrastructure.Extensions
 {
     public static class RegisterServiceExtensions
     {
+        public static IServiceCollection AddInfrastructureServicesForWebApp(this IServiceCollection services)
+        {
+            // Register services for web application
+            services.AddSingleton<ICacheService, CacheService>();   
+            services.AddSingleton<IUserSessionService, UserSessionService>();
+
+            return services;
+        }
+
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, ConfigurationManager configuration)
         {
             services.AddDbRepo(configuration);

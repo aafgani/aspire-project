@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using App.Infrastructure.Cache;
+using Web.Application.Extensions;
 
 namespace Web.Application.Controllers
 {
@@ -14,8 +16,15 @@ namespace Web.Application.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Logout()
+        public async Task<IActionResult> LogoutAsync()
         {
+            var userId = User.GetIdentifier(); 
+            var sessionId = User.GetSessionId(); 
+            var sessionKey = $"session-{userId}";
+            var cache = HttpContext.RequestServices.GetRequiredService<ICacheService>();
+
+            await cache.RemoveAsync(sessionKey);
+
             return SignOut(
                 new AuthenticationProperties
                 {
