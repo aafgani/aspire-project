@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Text.Encodings.Web;
 
 namespace Web.Application.Controllers
 {
@@ -9,8 +10,8 @@ namespace Web.Application.Controllers
         public IActionResult Index(string message, int statusCode)
         {
             ViewBag.StatusCode = statusCode;
-            ViewBag.Message = message ?? "An unknown error occurred.";
-            return View(); // return View("Index") if using Views/Error/Index.cshtml
+            ViewBag.Message = HtmlEncoder.Default.Encode(message ?? "Something went wrong.");
+            return View();
         }
     }
 }

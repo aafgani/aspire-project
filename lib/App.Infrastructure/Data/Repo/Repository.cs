@@ -42,7 +42,8 @@ namespace App.Infrastructure.Data.Repo
 
         public async Task<T> GetByIdAsync(int id)
         {
-            return await _db.Set<T>().FindAsync(id) ?? null;
+            var entity = await _db.Set<T>().FindAsync(id);
+            return entity ?? throw new InvalidOperationException($"Entity of type {typeof(T).Name} with ID {id} not found.");
         }
 
         public async Task<int> UpdateAsync(T entity)
