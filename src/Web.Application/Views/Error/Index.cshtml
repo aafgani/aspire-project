@@ -2,7 +2,7 @@
     Layout = null;
     ViewData["Title"] = "Error";
     var code = ViewBag.StatusCode ?? 403;
-    var message = ViewBag.Message as string ?? "An unexpected error occurred.";
+    var message = ViewBag.Message as string;
 }
 
 <!DOCTYPE html>
